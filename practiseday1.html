@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<style>
+textarea{
+	color: white;
+	background-color: black;
+	font-weight: bold;
+	font-family: arial;
+	border: none;
+	text-transform: none;
+}
+p{
+	font-weight: bold;
+	font-size: 40px;
+}
+</style>
+
+<body>
+
+<div ng-app="">
+
+<p>welcome to the page</p>
+<h2>Enter to display</h2>
+<input type="text" ng-model="name" placeholder="Enter here"><br>
+<h2>You entered</h2>
+<textarea  readonly cols="80" rows="20">{{name}}</textarea>
+
+</div>
+
+</body>
+<script src="../js/angular.min.js"></script>
+</html>
