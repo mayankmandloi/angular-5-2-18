@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>name</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+        .head{
+            font-size: 150px;
+            font-family: magneto;
+            color: blue;
+         
+        }
+        body{
+        	text-align: center;
+        }
+    </style>
+	
+</head>
+<body>
+    <div ng-app="">
+    	<input type="text" ng-model="name" ng-init="firstname='ujjaval'">
+    	<h1> <span class="head"> hello welcome {{name}} </span></h1> 
+    	<p ng-bind="name"></p>
+    	<p>The name is <span ng-bind="firstname"></span></p>
+
+    </div>
+
+
+</body>
+ <script src="../js/angular.min.js"></script>
+</html>
