@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body ng-app="myModule">
+    <div ng-controller="meraController as me">
+        <h5>Name {{me.name}}</h5>
+        <h5>Number {{me.number}}</h5>
+        <hr>
+    </div>
+
+    <div ng-controller="aapkaController as aa">
+            <h5>Name {{aa.name}}</h5>
+            <h5>Number {{aa.number}}</h5>
+            <hr>
+        </div>
+
+
+        <div ng-controller="meraController as baharwala">
+            
+                <div ng-controller="aapkaController as aandarwala">
+                <h5>Name {{baharwala.name}}</h5>
+                <h5>Name {{aandarwala.name}}</h5>
+                <h5>Number {{aandarwala.number}}</h5>
+                <hr>
+                </div>
+            </div>
+    
+</body>
+
+<script src="../js/angular.min.js"></script>
+
+<script>
+    var app = angular.module("myModule",[]);
+    app.controller("meraController",function(){
+        this.name="Mayank";
+    })
+
+    app.controller("aapkaController",function(){
+        this.name="Mayank Sir"
+        this.number=9425319399;
+    })
+</script>
+</html>

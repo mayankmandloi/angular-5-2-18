@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body ng-app="myModule" >
+    <div ng-controller="myController">
+        <input type="text" ng-model="name">
+        <h1 ng-click="haha()">Name:- {{name}}</h1>
+    </div>
+
+    <div ng-controller="myController">
+            <input type="text" ng-model="name">
+            
+        <h1>Name:- {{name}}</h1>
+    </div>
+    <h1>Name:- {{name}}</h1>
+</body>
+<h1>Name:- {{name}}</h1>
+
+<script src="../js/angular.min.js"></script>
+
+<script>
+
+   var app= angular.module("myModule",[]);
+    app.controller("myController",function($scope){
+        $scope.name="Web Bhumi";
+        $scope.haha=function()
+        {
+            window.alert("Hello");
+        }
+    })
+</script>
+</html>
