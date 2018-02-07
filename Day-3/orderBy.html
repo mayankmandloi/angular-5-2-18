@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div ng-app="myModule">
+        
+                <div ng-controller="myController">
+                    <select name="orderData" id="" ng-model="orderData">
+                        <option value="age">age</option>
+                        <option value="-age">-age</option>
+                        <option value="name">name</option>
+                        <option value="-name">-name</option>
+                        <option value="number">number</option>
+                        <option value="-number">-number</option>
+                    </select>
+                    <p ng-repeat="insaan in logon|orderBy:orderData">Hi I am <span ng-bind="insaan.name"></span> my number is <span ng-bind="insaan.number"></span> and I live at <span ng-bind="insaan.address"></span> , I am <span ng-bind="insaan.age"></span> years old </p>
+                </div>
+            </div>
+</body>
+<script src="../js/angular.min.js"></script>
+<script>
+
+    var app = angular.module("myModule",[]);
+    app.controller("myController",function($scope){
+        $scope.logon=[{name:"Mayank",number:"1",address:"Indore",age:29},{name:"Ujjawal",number:"2",address:"Neemuch",age:24},{name:"Suryakant",number:"3",address:"Indore",age:23},{name:"Shilpa",number:"4",address:"Indore",age:25},{name:"Meenal",number:"5",address:"Indore",age:22}];
+    })
+</script>
+</html>
