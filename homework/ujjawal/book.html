@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<title>books</title>
+</head>
+<body>
+	<div ng-app="myModule" class="container-fluid">
+		<div ng-controller="myController" class="row">
+			<div ng-repeat="books in Books|orderBy:searchData" class="col-4">
+							
+						<h1>{{$index+1}}){{books.Title}}</h1>
+						<p>{{books.Description}}</p>
+						<img ng-src="{{books.Image}}" alt="">
+					
+			</div>
+		</div>
+	</div>
+
+</body>
+<script src="../../js/angular.min.js"></script>
+<script>
+	var app=angular.module("myModule",[]);
+	app.controller("myController",function($scope){
+		$scope.Books=[{"ID":2725483026,"Title":"Beginning PHP 6, Apache, MySQL 6 Web Development","Description":"Apache, MySQL and PHP are each complex in and of themselves, and it's impossible for this book to cover every advanced detail of all three. The purpose of this book is to give you the best possible foundation for understanding how each of the core co ...","Image":"http://s.it-ebooks-api.info/2/beginning_php_6_apache_mysql_6_web_development.jpg","isbn":"9780470391143"},{"ID":869476162,"Title":"PHP and MySQL For Dummies, 3rd Edition","Description":"Been thinking of creating a high-quality interactive Web site? This book is just what you need to get started! Here's the fun and easy way(r) to develop a Web application in PHP 4, 5, or 6 and MySQL 5, test your software, enable your Web pages to dis ...","Image":"http://s.it-ebooks-api.info/9/php_and_mysql_for_dummies_3rd_edition.jpg","isbn":"9780470096000"},{"ID":1096327173,"Title":"PHP 6 and MySQL 6 Bible","Description":"MySQL is the leading open source database on the market and PHP continues to dominate the server side of the scripting market - together, they are the most popular and common team for creating dynamic, database-driven web sites. This comprehensive bo ...","Image":"http://s.it-ebooks-api.info/9/php_6_and_mysql_6_bible.jpg","isbn":"9780470384503"},{"ID":3775254278,"Title":"Expert PHP and MySQL","SubTitle":"Application Design and Development","Description":"Expert PHP and MySQL takes you beyond learning syntax to showing you how to apply proven software development methods to building commerce-grade PHP and MySQL projects that will stand the test of time and reliably deliver on customer needs.nnDevelo ...","Image":"http://s.it-ebooks-api.info/6/expert_php_and_mysql.jpg","isbn":"9781430260073"},{"ID":4199565506,"Title":"Practical PHP and MySQL Website Databases","SubTitle":"A Simplified Approach","Description":"Practical PHP and MySQL Website Databases is a project-oriented book that demystifies building interactive, database-driven websites. The focus is on getting you up and running as quickly as possible. In the first two chapters you will set up your de ...","Image":"http://s.it-ebooks-api.info/6/practical_php_and_mysql_website_databases.jpg","isbn":"9781430260769"},{"ID":2214382870,"Title":"PHP and MySQL Recipes, 2nd Edition","SubTitle":"A Problem-Solution Approach","Description":"This book is a source of instant solutions, including countless pieces of useful code that you can copy and paste into your own applications, giving you answers fast and saving you hours of coding time. You can also use this book as a reference to th ...","Image":"http://s.it-ebooks-api.info/6/php_and_mysql_recipes_2nd_edition.jpg","isbn":"9781484206065"},{"ID":3426521078,"Title":"PHP: The Good Parts","SubTitle":"Delivering the Best of PHP","Description":"Get past all the hype about PHP and dig into the real power of the language. This book explores the most useful features of PHP and how they can speed up the web development process, and explains why the most commonly used PHP elements are often misu ...","Image":"http://s.it-ebooks-api.info/3/php_the_good_parts.jpg","isbn":"9780596804374"},{"ID":427318464,"Title":"Pro PHP Application Performance","SubTitle":"Tuning PHP Web Projects for Maximum Performance","Description":"This book contains tips, tricks, and techniques to make new and existing PHP applications much faster and less resource-hungry.nnPro PHP Application Performance will help you understand all the technologies and components which play a role in how w ...","Image":"http://s.it-ebooks-api.info/6/pro_php_application_performance.jpg","isbn":"9781430228981"},{"ID":4204143064,"Title":"Beginning PHP5, Apache and MySQL Web Development","Description":"PHP, Apache, and MySQL are the three key open source technologies that form the basis for most active Web servers. This new edition guides you through the entire process of setting up your own site and walks you through every step, from the installat ...","Image":"http://s.it-ebooks-api.info/2/beginning_php5_apache_and_mysql_web_development.jpg","isbn":"9781457107863"},{"ID":2930198979,"Title":"MySQL Cookbook, 2nd Edition","SubTitle":"Solutions & Examples for Database Developers and DBAs","Description":"Along with MySQL's popularity has come a flood of questions about solving specific problems, and that's where this Cookbook is essential. Designed as a handy resource when you need quick solutions or techniques, the book offers dozens of short, focus ...","Image":"http://s.it-ebooks-api.info/3/mysql_cookbook_2nd_edition.jpg","isbn":"9780596527082"}];
+		$scope.sortArray=function(value)
+		{
+          if(value==$scope.searchData)
+        {
+            $scope.searchData="-"+value;
+        }
+        else
+        {
+            $scope.searchData=value;
+        }
+		}
+	})
+</script>
+</html>
