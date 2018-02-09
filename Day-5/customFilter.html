@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body ng-app="myModule">
+    {{"Hello"|aapnafilter|aapnafilter|uppercase|aapnafilter|aapnafilter}}
+    <br>
+    {{"Mayank"|aapnafilter}}
+    <br>
+    {{1987|aapnafilter}}
+</body>
+
+<script src="../js/angular.min.js"></script>
+<script>
+    (function(angular){
+        angular.module("myModule",[]);
+        angular.module("myModule").filter("aapnafilter",function(){
+            return function(item)
+            {
+                console.log(item);
+                return item+", Hi";
+            }
+        })
+
+    })(window.angular);
+</script>
+</html>
