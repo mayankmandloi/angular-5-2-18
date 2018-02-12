@@ -17,8 +17,8 @@
 <script src="../js/angular.min.js"></script>
 <script>
     (function(angular){
-        angular.module("myModule",[]);
-        angular.module("myModule").filter("aapnafilter",function(){
+        var app=angular.module("myModule",[]);
+        app.filter("aapnafilter",function(){
             return function(item)
             {
                 console.log(item);

@@ -10,7 +10,7 @@
     <div ng-app="myModule">
         
                 <div ng-controller="myController">
-                    <input type="text" ng-model="searchData">
+                    <input type="text" ng-model="searchData.name">
                         Data {{searchData}}
                     <p ng-repeat="insaan in logon|filter:searchData">Hi I am <span ng-bind="insaan.name"></span> my number is <span ng-bind="insaan.number"></span> and I live at <span ng-bind="insaan.address"></span> , I am <span ng-bind="insaan.age"></span> years old </p>
                 </div>

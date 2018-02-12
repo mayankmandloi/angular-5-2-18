@@ -13,20 +13,21 @@
     
             <div ng-controller="myController">
                 <p ng-repeat="insaan in logon">Hi I am {{insaan.name}} my number is {{insaan.number}} and I live at {{insaan.address}} , I am {{insaan.age}} years old </p>
+
+                
                 <p ng-repeat="insaan in logon">Hi I am <span ng-bind="insaan.name"></span> my number is <span ng-bind="insaan.number"></span> and I live at <span ng-bind="insaan.address"></span> , I am <span ng-bind="insaan.age"></span> years old </p>
                 
                 <hr><hr><hr>
-                {{logon}}
             </div>
         </div>
     </body>
     
-    <script src="js/angular.min.js"></script>
+    <script src="../js/angular.min.js"></script>
     <script>
     
         var app = angular.module("myModule",[]);
         app.controller("myController",function($scope){
-            $scope.logon=[{name:"Mayank",number:"1",address:"Indore",age:29},{name:"Ujjawal",number:"2",address:"Neemuch",age:24},{name:"Suryakant",number:"3",address:"Indore",age:23},{name:"Shilpa",number:"4",address:"Indore",age:25},{name:"Meenal",number:"5",address:"Indore",age:22}];
+            $scope.logon=[{name:"Mayank",number:"1",address:"Indore",age:29},{name:"Ujjawal",number:"2",address:"Neemuch",age:24},{name:"Suryakant",number:"3",address:"Indore",age:23},{name:"Shilpa",number:"4",address:"Indore",age:25},{name:"Meenal",number:"5",address:"Indore",age:22},{name:"Darshay",number:"6",address:"Indore",age:25}];
         })
     </script>
 

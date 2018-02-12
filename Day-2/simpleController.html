@@ -10,6 +10,7 @@
     <div ng-controller="myController">
         <input type="text" ng-model="name">
         <h1 ng-click="haha()">Name:- {{name}}</h1>
+        Num {{number}}
     </div>
 
     <div ng-controller="myController">
@@ -27,6 +28,7 @@
 
    var app= angular.module("myModule",[]);
     app.controller("myController",function($scope){
+        $scope.number=12356789;
         $scope.name="Web Bhumi";
         $scope.haha=function()
         {

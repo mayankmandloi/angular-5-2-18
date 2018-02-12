@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        Subject :- {{Subject}}
+        Fee:- {{fee|currencycon}} or {{fee|currencycon:'doller'}}
+    </div>
+</body>
+<script src="../js/angular.min.js"></script>
+<script>
+    var app= angular.module("myModule",[]);
+    app.controller("myController",function($scope){
+        $scope.Subject="Angular";
+        $scope.fee="12000";
+    })
+    app.filter("currencycon",function(){
+        return function(money,con){
+            if(!con)
+            {
+                return "Rs "+money;
+            }
+            if(con=='doller')
+            {
+                money = money*0.016;
+                return "$ "+money;
+
+            }
+            else
+            {
+                return "# "+money;
+            }
+
+        }
+    })
+</script>
+</html>
