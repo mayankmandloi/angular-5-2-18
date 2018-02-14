@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="bookController">
+        <bool-list books="Bookss" tooks="Bookss" func="alt()"></bool-list>
+        <bool-list books="Hahahaha" tooks="Mayank" func="con()"></bool-list>
+        <bool-list></bool-list>
+        
+        
+    </div>
+</body>
+
+<script src="../js/angular.min.js"></script>
+<script src="../js/books.js"></script>
+<script>
+   var app=angular.module("myApp",[]);
+   app.controller("bookController",function($scope){
+    $scope.Bookss=Books;
+    $scope.Hahahaha=[{Title:"Ramm"}];
+    $scope.alt=function()
+    {
+        window.alert("Ramm");
+    }
+
+    $scope.con=function()
+    {
+        console.log("Hanumaan");
+    }
+   });
+   app.directive("boolList",function(){
+       return {
+        //    template:"<div ng-repeat='book in Books'><h1>{{book.Title}}</h1><p>{{book.Description}}</p></div>"
+        templateUrl:"templateBookList.html",
+        scope:{
+            books:"=",
+            tooks:"@",
+            func:"&"
+        }
+       }
+   })
+</script>
+</html>

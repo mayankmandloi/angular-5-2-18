@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body ng-app="myModule">
+    <input type="text" ng-model="d1">
+    <input type="text" ng-model="d2">
+    <hh test1="d1" test2="d2"></hh>
+    
+</body>
+<script src="../js/angular.min.js"></script>
+<script>
+    var app=angular.module("myModule",[]);
+    app.directive("hh",function(){
+        return{
+            template:"<br><hr><input ng-model='test1'><br><input ng-model='test2'>",
+            scope:{
+                test1:"=",
+                test2:"<"
+            }
+        }
+    })
+</script>
+</html>
