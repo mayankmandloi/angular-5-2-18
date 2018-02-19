@@ -1,61 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+	<title>custom directive</title>
 </head>
-<body>
-    <h2>ANGULAR JS sample application for custom directive...</h2>
-    <div ng-app="myModule" ng-controller="studentController">
-        <student name="ujjaval"></student><br>
-        <student name="mayank"></student>
-    </div>
+<mark> //return have object and all the things are happens inside of object{}</mark>
+<body ng-app="myApp" ng-controller="app">
+	<div myFirstDirective="">
+		
+	</div>
     
 </body>
-<script src="../js/angular.min.js"></script>
-<script>
-    var myApp=angular.module("myModule",[]);
-    myApp.directive("student",function(){
-        //define the directive object
-        var directive={};
-        
-        //element directive
-        directive.restrict="E";
-
-        //template replaces the complete element with its text
-        directive.template="Student:<b>{{student.name}}</b>,Roll No:<b>{{student.rollno}}</b>";
-
-        //scope is used to destinguised each student element based on criteria...
-        directive.scope={
-            student:"=name"
-        }
-
-        //compile is called during application initialization..angularJS calls it once when html page is loaded..
-        directive.compile=function(element,attributes)
-        {
-            element.css("border","1px solid green");
-
-        }
-        //linkFunction is linked with each element with scope to get the element specific data..
-        var linkFunction=function($scope,element,attributes)
-        {
-            element.html("Student:<b>"+$scope.student.name+"</b>,Roll no:<b>"+$scope.student.rollno+"</b><br>");
-            element.css("background-color","blue");
-        }return linkFunction;
-    }return directive;
-    });
-    myApp.controller("studentController",function($scope){
-        $scope.ujjaval={};
-        $scope.ujjaval.name="ujjaval patidar";
-        $scope.ujjaval.rollno=1;
-
-        $scope.mayank={};
-        $scope.mayank.name="mayank mandloi";
-        $scope.mayank.rollno=2;
-    });
+<script src="../../js/angular.min.js"></script>
+<script >
+	var app=angular.module("myApp",[]);
+	app.directive("myFirstDirective",function(){
+		return{                    
+              template:"hello  {{name}}"
+		};
+	});
+	app.controller("app",function($scope){
+		$scope.name="ujjaval";
+	});
 </script>
 </html>
