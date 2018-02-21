@@ -16,7 +16,7 @@
     </div>
     
 </body>
-<script src="../js/angular.min.js"></script>
+<script src="../../js/angular.min.js"></script>
 <script>
     var myApp=angular.module("myModule",[]);
     myApp.directive("student",function(){
@@ -45,9 +45,11 @@
         {
             element.html("Student:<b>"+$scope.student.name+"</b>,Roll no:<b>"+$scope.student.rollno+"</b><br>");
             element.css("background-color","blue");
-        }return linkFunction;
-    }return directive;
-    });
+        }
+        // return linkFunction;
+        return directive;
+    }
+    );
     myApp.controller("studentController",function($scope){
         $scope.ujjaval={};
         $scope.ujjaval.name="ujjaval patidar";

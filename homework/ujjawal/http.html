@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>$http service </title>
+</head>
+<body ng-app="myModule">
+	<div ng-controller="myController">
+        <input type="text" name="" id="" ng-model="text">
+        <button ng-click="search()"> Search</button>
+		<div ng-repeat="book in Books">
+			<h1>{{book.Title}}</h1>
+			<h1>{{book.Description}}</h1>
+			
+		</div>
+	</div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+<script>
+	var app=angular.module("myModule",[]);
+	app.controller("myController",function($scope,$http){
+	   //$scope.Books=response.data;	
+       $scope.search=function(){
+	   $http.get("http://it-ebooks-api.info/v1/search/"+$scope.text).then (function successData(response)
+
+		{
+			 $scope.Books=response.data.Books;
+			console.log("thank you");
+		},
+		function errorData(reason)
+		{
+			$scope.error=reason.data;
+			console.log("sorry error");
+		});
+        }
+	});
+</script>
+</html>

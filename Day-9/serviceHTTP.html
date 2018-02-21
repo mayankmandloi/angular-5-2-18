@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body ng-app="myModule" ng-controller="myController">
+    <input type="text" ng-model="searchText">
+    <button ng-click="serach()">Search</button>
+    <div ng-repeat="book in Books">
+        <h1>{{book.Title|uppercase}}</h1>
+        <p>{{book.Description}}</p>
+        <img src="{{book.Image}}" alt="">
+    </div>
+</body>
+<script src="../js/angular.min.js"></script>
+<script>
+    var app= angular.module("myModule",[]);
+
+    
+    app.controller("myController",function($scope,$http){
+
+
+        
+        $scope.serach=function(){
+
+
+        $http.get("http://it-ebooks-api.info/v1/search/"+$scope.searchText).then(function success (mayank){
+            console.log("Thank You");
+            console.log(mayank);
+            $scope.Books=mayank.data.Books;
+        },function failuer(resData)
+        {
+            console.log("Sorry No Data");
+        });
+        }
+
+
+    })
+</script>
+</html>
