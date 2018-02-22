@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body ng-app="myModule">
+    <div ng-controller="mapController">
+            <input type="text" ng-model="searchText" ng-blur="search()">
+            <h1>{{formattedAddress}}</h1>
+    </div>
+</body>
+<script src="../js/angular.min.js"></script>
+<script>
+    var app = angular.module("myModule",[]);
+    app.controller("mapController",function($scope,$http){
+        $scope.search=function(){
+        $http.get("https://maps.googleapis.com/maps/api/geocode/json?address="+$scope.searchText+"&sensor=false").then(function(resData){
+            $scope.formattedAddress=resData.data.results[0].formatted_address;
+        },function(resData){
+
+        })
+        };
+    })
+</script>
+</html>

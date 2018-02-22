@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        <h1>{{kuchBhi}}</h1>
+        <h2>{{kuchAddress}}</h2>
+        {{Books}}
+    </div>
+</body>
+<script src="../js/angular.min.js"></script>
+<script>
+    var app=angular.module("myModule",[]);
+    app.controller("myController",function($scope,hamariService){
+        $scope.kuchBhi = hamariService.name;
+        $scope.kuchAddress = hamariService.address;
+        $scope.Books=hamariService.test.Books;
+
+    });
+
+    app.service("hamariService",function($http){
+        this.name="Web Bhumi";
+        this.address="201 Soni Mention ratlam Kothi"
+        this.test={};
+        var that = this;
+        $http.get("http://it-ebooks-api.info/v1/search/php%20mysql").then(function(res){
+        that.test.Books=res.data.Books;
+        console.log(that.test.Books);
+
+        })
+    })
+</script>
+</html>
