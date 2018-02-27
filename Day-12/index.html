@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    ul
+    {
+        list-style-type: none;
+    }
+    li
+    {
+        display: inline-block;
+        width: 15%;
+        padding: 5px;
+    }
+    </style>
+</head>
+<body ng-app="myModule">
+    <ul>
+        <li><a href="#!/darshay">Darshay</a></li>
+        <li><a href="#!/brijesh">Brijesh</a></li>
+        <li><a href="#!/ujjawal">Ujjawal</a></li>
+        <li><a href="#!/suryakant">Suryakant</a></li>
+        <li><a href="#!/meenal">Meenal</a></li>
+    </ul>
+    <ng-view></ng-view>
+    <ng-view></ng-view>
+    <ng-view></ng-view>
+</body>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script>
+var app = angular.module("myModule",["ngRoute"])
+app.config(function($routeProvider){
+$routeProvider.when("/",{
+        template:"<h1>Hello I am Mayank</h1>"
+    });
+
+    $routeProvider.when("/darshay",{
+        templateUrl:"templates/darshay.html",
+        controller:function($scope){$scope.name="Darsh";}
+    })
+
+    $routeProvider.when("/brijesh",{
+        template:"<h1>Hello I am Brijesh</h1>"
+    })
+
+    $routeProvider.when("/ujjawal",{
+        template:"<h1>Hello I am Ujjawal</h1>"
+    })
+
+    $routeProvider.when("/suryakant",{
+        template:"<h1>Hello I am Suryakant</h1>"
+    })
+
+    $routeProvider.when("/meenal",{
+        template:"<h1>Hello I am Meenal</h1>"
+    })
+
+})
+
+
+</script>
+</html>
