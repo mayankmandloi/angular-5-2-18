@@ -1,0 +1,36 @@
+(function(){
+    var app = angular.module("ujjawalLoginApp",["ngRoute"]);
+    app.config(function($routeProvider){
+        $routeProvider.when("/",{
+            templateUrl:"templates/login.html",
+            controller:function($scope,dataService,$location){
+                $scope.check=function(){
+                    console.log($location);    
+                if($scope.username==dataService.username&&$scope.password==dataService.password&&$scope.username)
+                {
+                        $location.url("/home");
+                }
+                else
+                {
+                    $location.url("/reg");
+                }
+                }
+            }
+        });
+        $routeProvider.when("/reg",{
+            templateUrl:"templates/reg.html",
+            controller:function($scope,dataService,$location){
+                $scope.save=function(){
+                    dataService.username=$scope.username;
+                    dataService.password=$scope.password;
+                    dataService.email=$scope.email;
+                    dataService.contact=$scope.contact;
+                    $location.url("/");
+                }
+            }
+        })
+    })
+    app.service("dataService",function(){
+        
+    })
+})(window.angular)
